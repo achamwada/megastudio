@@ -1,12 +1,13 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const  HtmlWebpackPlugin = require("html-webpack-plugin")
+const webpack = require('webpack')
 module.exports = () => {
 
     return {
         mode: "development",
         entry: {
-            client: path.resolve(process.cwd(), "client/index.js")
+            client:  path.resolve(process.cwd(), "client/index.js")
         },
         /*output: {
             path: path.resolve(process.cwd(), "build"),
@@ -25,7 +26,8 @@ module.exports = () => {
           contentBase: path.resolve(process.cwd(), 'build'),
           port: 8080,
           open: true,
-          hot: true
+          hot: true,
+          inline: true
         },
         module: {
             rules: [
@@ -42,7 +44,9 @@ module.exports = () => {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, "utils/template.html")
             }),
-            new CleanWebpackPlugin()
+            new CleanWebpackPlugin(),
+
+            new webpack.HotModuleReplacementPlugin()
         ]
     }
 }

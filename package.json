@@ -19,7 +19,9 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@apollo/client": "^3.0.0-beta.41",
     "@babel/polyfill": "^7.8.7",
+    "graphql": "^14.6.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   }
