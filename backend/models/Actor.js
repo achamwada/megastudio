@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
 
-const ActorSchema = new Schema({
+export const ActorSchema = new Schema({
   first_name: String,
   last_name: String,
   bio: String,

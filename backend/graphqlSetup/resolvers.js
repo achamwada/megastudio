@@ -22,8 +22,13 @@ export const resolvers = {
   Mutation: {
     addMovie: async (_, { input }) => {
       const movie = new Movie(input)
+      const { actors } = input
       try {
         const savedMovie = await movie.save()
+        if(actors.length){
+          await Actor.insertMany(actors)
+
+        }
         return savedMovie
       } catch (error) {
         console.log('Error in saving movie', error)

@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose'
+import { ActorSchema } from "./Actor"
 
 const MovieSchema = new Schema({
   title: String,
@@ -6,10 +7,7 @@ const MovieSchema = new Schema({
   length: String,
   year: Number,
   actors: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Actor',
-    },
+    ActorSchema
   ],
   date_added: {
     type: Date,
